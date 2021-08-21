@@ -18,7 +18,7 @@ jobs:
       working-directory: ${{github.workspace}}
       run: |
         cmake --version
-        ninja --version
+        make --version
 
     - name: Build Project
       shell: bash
