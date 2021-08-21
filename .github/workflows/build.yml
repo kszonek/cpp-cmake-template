@@ -1,0 +1,30 @@
+name: Package creator
+
+on: [pull_request]
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install cmake
+      uses: jwlawson/actions-setup-cmake@v1.6
+      with:
+        cmake-version: '3.19.0'
+
+    - name: Install Ninja
+      uses: ashutoshvarma/setup-ninja@master
+      with:
+        dest: '/opt/ninja/bin/'
+        version: '1.10.0'
+
+    - name: Build Project
+      shell: bash
+      working-directory: ${{github.workspace}}
+      run: ./scripts/build.sh --verbose
