@@ -1,5 +1,7 @@
 #!/bin/bash
 
-project="$(dirname $0)/.."
+project_directory="$(dirname $0)/.."
+build_directory="$project_directory/build"
 
-g++ $project/src/main.cpp -o $project/build/test
+cmake -S "$project_directory" -B "$build_directory"
+cmake --build "$build_directory"
