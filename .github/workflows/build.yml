@@ -21,4 +21,6 @@ jobs:
     - name: Build Project
       shell: bash
       working-directory: ${{github.workspace}}
-      run: ./scripts/build.sh
+      run: |
+        cmake --version
+        ./scripts/build.sh
