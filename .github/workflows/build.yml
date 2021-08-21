@@ -13,12 +13,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Install cmake
-      uses: jwlawson/actions-setup-cmake@v1.6
-      with:
-        cmake-version: '3.19.0'
+    # - name: Install cmake
+    #   uses: jwlawson/actions-setup-cmake@v1.6
+    #   with:
+    #     cmake-version: '3.19.0'
 
     - name: Build Project
       shell: bash
       working-directory: ${{github.workspace}}
-      run: ./scripts/build.sh --verbose
+      run: ./scripts/build.sh
