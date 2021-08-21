@@ -13,14 +13,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    # - name: Install cmake
-    #   uses: jwlawson/actions-setup-cmake@v1.6
-    #   with:
-    #     cmake-version: '3.19.0'
-
-    - name: Build Project
+    - name: Print build software versions
       shell: bash
       working-directory: ${{github.workspace}}
       run: |
         cmake --version
-        ./scripts/build.sh
+        ninja --version
+
+    - name: Build Project
+      shell: bash
+      working-directory: ${{github.workspace}}
+      run: ./scripts/build.sh
